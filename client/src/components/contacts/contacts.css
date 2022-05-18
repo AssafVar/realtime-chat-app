@@ -1,0 +1,12 @@
+.contact{
+    margin: 15px 0;
+}
+.contact img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.contact span{
+    font-weight:500;
+}

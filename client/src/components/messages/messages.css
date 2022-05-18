@@ -1,0 +1,18 @@
+.message{
+    margin-top: 10px;
+}
+.message img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.message span{
+    text-align: left;
+    margin-left: 5px;
+}
+.message.own{
+    flex-direction: row-reverse;
+}
+.message.own span{
+    text-align: left;
+}
