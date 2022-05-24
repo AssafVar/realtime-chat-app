@@ -1,0 +1,13 @@
+.nav-button{
+    margin:15px;
+    background: transparent;
+    border: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+.nav-button:hover{
+    color: rgb(172, 171, 171);
+    font-weight: 500;
+}

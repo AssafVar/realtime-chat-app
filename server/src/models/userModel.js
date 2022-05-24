@@ -25,7 +25,15 @@ async function addNewUser(userInfo){
     });
     const results = await user.save();
     return results&& user;
-
 }
 
-export {checkUniqueEmail,addNewUser}
+async function getUserInfo(email){
+    try{
+        const response = User.find({"email":email});
+        return response;
+    }catch(err){
+        console.log(err);
+    }
+}
+
+export {checkUniqueEmail,addNewUser,getUserInfo}

@@ -1,0 +1,12 @@
+    .register{
+        width: 50%;
+        margin: auto;
+        margin-top: 30px;
+    }
+    .register-toggle{
+        color: aqua;
+    }
+    .register-toggle:hover{
+        color: rgb(27, 80, 80);
+        cursor: pointer;
+    }
