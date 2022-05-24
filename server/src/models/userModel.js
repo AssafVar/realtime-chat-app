@@ -1,4 +1,4 @@
-import {User} from "../connections/mongoDB.js";
+import {User} from "../connections/UsersDB.js";
 import bcrypt from "bcrypt";
 import {nanoid} from "nanoid";
 
@@ -24,7 +24,9 @@ async function addNewUser(userInfo){
         id,
     });
     const results = await user.save();
-    return results&& user;
+    if (results){
+        return user;
+    }
 }
 
 async function getUserInfo(email){

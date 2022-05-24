@@ -31,5 +31,14 @@ const postUserSignup = async(userInfo)=>{
         console.log(err);
     }
 }
-
-export {postUserLogin,postUserSignup}
+const postMessage = (message,token)=>{
+    try{
+        const response = API.post("/conversation",message,{
+            headers: { Authorization: token },
+        });
+        return response;
+    }catch(err){
+        console.log(err);
+    }
+}
+export {postUserLogin,postUserSignup,postMessage}

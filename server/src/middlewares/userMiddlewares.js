@@ -57,10 +57,22 @@ async function varifyUser (req, res, next){
         req.body.firstName = userInfo[0].firstName;
         req.body.lastName = userInfo[0].lastName;
         req.body.phoneNumber = userInfo[0].phoneNumber;
+        req.body.id = userInfo[0].id;
         const checkPassword = comparePasswords(userInfo[0].password,req.body.password);
         checkPassword?next():res.status(401).send("Wrong email or password");
     }else{
         res.status(401).send("Wrong email or password");
     }
 }
-export {signupValidation, checkEmail, checkPassword,loginValidation, varifyUser}
+
+function verifyToken(req, res, next) {
+    const token = req.headers.authorization;
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+      if (err) {
+        res.send({"err":"not valid token"});
+      } else {
+        next();
+      }
+    });
+  }
+export {signupValidation, checkEmail, checkPassword,loginValidation, varifyUser, verifyToken}
