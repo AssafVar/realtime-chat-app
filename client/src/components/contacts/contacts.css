@@ -1,5 +1,6 @@
 .contact{
     margin: 15px 0;
+    cursor: pointer;
 }
 .contact img{
     height: 40px;
@@ -9,4 +10,12 @@
 }
 .contact span{
     font-weight:500;
+}
+.messsge-text{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.messsge-text textarea{
+    flex:1
 }

@@ -1,0 +1,8 @@
+.users-div{
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    border:black 1px solid;
+    text-align: center;
+    cursor: pointer;
+}

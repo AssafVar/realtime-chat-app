@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import {format} from "timeago.js"
+import './messages.css';
 
-function Message({own}) {
+function Message({own, m}) {
+    const [isUser, setIsUser] = useState(null);
+
+    useEffect(()=>{
+        if (own.id===m.sender){
+            setIsUser("own");
+        }
+    },[])
 
     return (
-        <div className={`message d-flex ${own}`}>
+        <>
+        <div className={`message d-flex ${isUser}`}>
             <img src="https://mdbootstrap.com/img/new/slides/041.webp" alt="user photo"/>
-            <span>Some text about something Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, nostrum. At, mollitia ea corporis harum maxime laudantium totam molestias cum minus, eaque, incidunt suscipit nulla dolores tempore aut? Asperiores, sequi?</span>
+            <span>{m.text}</span>
+            <div>
+            </div>
         </div>
+        <span>{format(m.createdAt)}</span>
+        </>
     );
 }
 

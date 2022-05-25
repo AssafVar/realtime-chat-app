@@ -1,5 +1,6 @@
-import {addNewUser} from "../models/userModel.js";
+import {addNewUser,getUserInfoById,getAllUsers} from "../models/userModel.js";
 import jwt from "jsonwebtoken";
+
 
 async function addUser (req,res){
     const userInfo = req.body;
@@ -33,4 +34,22 @@ async function sendUser (req,res){
     const token = jwt.sign({user},process.env.JWT_SECRET,{ expiresIn: "5h" });
     res.send({user,token})
 }
-export {addUser,sendUser};
+
+async function getUserById(req,res){
+    const id = req.params.userId;
+    try{
+        const response = await getUserInfoById(id)
+        res.send(response) ;
+    }catch(err){
+        res.status(500).send(err)
+    }
+}
+async function getUsers(req,res){
+    try{
+        const response = await getAllUsers()
+        res.send(response) ;
+    }catch(err){
+        res.status(500).send(err)
+    }
+}
+export {addUser,sendUser,getUserById,getUsers};

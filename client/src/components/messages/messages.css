@@ -1,5 +1,9 @@
 .message{
-    margin-top: 10px;
+    margin-top: 20px;
+    border :black solid 1px;
+    border-radius: 10px;
+    background: rgb(89, 109, 160);
+    padding:15px
 }
 .message img{
     height: 30px;
@@ -12,7 +16,12 @@
 }
 .message.own{
     flex-direction: row-reverse;
+    background: rgb(137, 163, 228);
 }
 .message.own span{
     text-align: left;
+}
+.messages-div{
+    height: 60vh;
+    overflow-y: auto
 }

@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Message from './Message';
-import { Button } from "react-bootstrap";
 import './messages.css';
 import { useAuth } from '../../context/AuthProvider';
+import { useEffect } from 'react';
 
-function Messages(props) {
+function Messages({chatMessages}) {
 
-    //const [user, setUser] = useState("own");
-    const [message, setMessage] = useState('');
+    const [user, setUser] = useState(null);
     const auth = useAuth();
+    const scrollRef = useRef();
 
-    const handleSubmit = async()=>{
-        const response = await postMessage(message,auth.token);
-        console.log(response);
-    }
+    useEffect(()=>{
+        scrollRef.current?.scrollIntoView({behavior:"smooth"});
+    },[chatMessages])
 
     return (
         <>
             <h4>Messages</h4>
-            <Message own={auth.user}/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <textarea value={message} onChange={(e)=>setMessage(e.target.value)}/>
-            <Button onClick={handleSubmit}>Send</Button>
+            <div  className='messages-div'>
+            {chatMessages&&chatMessages.map((m)=>(
+                <div ref={scrollRef}>
+                <Message own={auth.user} m={m}/>
+                </div>
+            ))}
+            </div>
+
         </>
     );
 }

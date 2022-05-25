@@ -37,5 +37,20 @@ async function getUserInfo(email){
         console.log(err);
     }
 }
-
-export {checkUniqueEmail,addNewUser,getUserInfo}
+async function getUserInfoById(userId){
+    try{
+        const response = User.find({"id":userId});
+        return response;
+    }catch(err){
+        console.log(err);
+    }
+}
+async function getAllUsers(){
+    try{
+        const response = User.find();
+        return response;
+    }catch(err){
+        console.log(err)
+    }
+}
+export {checkUniqueEmail,addNewUser,getUserInfo,getUserInfoById,getAllUsers}
