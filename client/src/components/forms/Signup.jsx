@@ -36,7 +36,8 @@ function Signup(props) {
         email: email,
         phoneNumber: phoneNumber,
         password: password,
-        confirmPassword: confirmPassword
+        confirmPassword: confirmPassword,
+        imageUrl:"1"
       }
       );
       console.log(response);

@@ -9,6 +9,7 @@ const ajv = new Ajv();
 addFormats(ajv);
 
 function signupValidation(req, res, next) {
+
   const validate = ajv.compile(signupSchema);
   const valid = validate(req.body);
   if (valid) {
@@ -28,6 +29,7 @@ function loginValidation(req, res, next) {
     }
   }
 async function checkEmail(req,res,next){
+  
     try{
         const userInfo = req.body;
         const response = await checkUniqueEmail(userInfo);
@@ -58,6 +60,7 @@ async function varifyUser (req, res, next){
         req.body.lastName = userInfo[0].lastName;
         req.body.phoneNumber = userInfo[0].phoneNumber;
         req.body.id = userInfo[0].id;
+        req.body.imageUrl = userInfo[0].imageUrl;
         const checkPassword = comparePasswords(userInfo[0].password,req.body.password);
         checkPassword?next():res.status(401).send("Wrong email or password");
     }else{

@@ -14,6 +14,7 @@ function Login(props) {
       const response = await postUserLogin(email, password);
       if (!response?.err) {
         setIsAuth(false);
+        console.log(response.data.user)
         auth.login(response.data.user,response.data.token);
       } else {
         setIsAuth(true);

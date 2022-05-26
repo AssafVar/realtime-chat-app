@@ -17,4 +17,16 @@ async function getUserConversations(userId){
         return {"err":err}
     }
 }
-export {addNewConversation,getUserConversations}
+
+async function checkConversation(senderId, reciverId){
+    try{
+        const response = await Conversation.find(
+            {$and:[
+        {members: { $in:[senderId]}}
+        ,{members:{$in:[reciverId]}}]});
+        return response;
+    }catch(err){
+        console.log(err);
+    }
+}
+export {addNewConversation,getUserConversations,checkConversation}

@@ -84,4 +84,14 @@ const connectUser  = async(senderId, receiverId, token)=>{
       });
       return allUsers;
 }
-export { postUserLogin, postUserSignup, postMessage, getConversations,getUserById ,getChatMessages,getAllUsers,connectUser};
+
+const postUserImage = async (token, userId, image)=>{
+      const formData = new FormData();
+      formData.append("image", image);
+      const response = await API.put(`/image/${userId}`, formData,{
+        headers: { Authorization: token },
+      });
+    
+      return response.data;
+}
+export { postUserLogin, postUserSignup, postMessage, getConversations,getUserById ,getChatMessages,getAllUsers,connectUser,postUserImage};

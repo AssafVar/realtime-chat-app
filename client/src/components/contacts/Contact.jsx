@@ -15,18 +15,17 @@ function Contact({conversation,currentUser}) {
         const getUser = async()=>{
             try{
             const response = await getUserById(friendId,auth.token);
-            setUser(`${response.data[0].firstName} ${response.data[0].lastName}`)
+            setUser(response.data[0])
             }catch(err){
                 setError("could not get the data")
             }
         }
         getUser()
     },[])
-
     return (
         <div className="contact">
-        <img src="https://mdbootstrap.com/img/new/slides/041.webp" alt=""/>
-        <span>{user}</span>
+        <img src={user?.imageUrl} alt=""/>
+        <span>{user?.firstName}</span>
     </div>
     );
 }

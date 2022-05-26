@@ -1,23 +1,36 @@
-.message{
+.messages{
     margin-top: 20px;
-    border :black solid 1px;
     border-radius: 10px;
-    background: rgb(89, 109, 160);
     padding:15px
 }
-.message img{
+.messages img{
     height: 30px;
     width: 30px;
     border-radius: 50%;
 }
-.message span{
+.messages span{
     text-align: left;
     margin-left: 5px;
 }
-.message.own{
-    flex-direction: row-reverse;
-    background: rgb(137, 163, 228);
+.messages .own{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    padding:5px;
+    margin-left: 10px;
+    background: rgb(193, 196, 203);
 }
+.message{
+    flex-direction: row;
+    background: rgb(137, 163, 228);
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    padding:5px;
+    margin-left: 10px;
+}
+
+
 .message.own span{
     text-align: left;
 }

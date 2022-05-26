@@ -7,6 +7,7 @@ const signupSchema = {
       password: { type: "string" ,minLength: 1},
       confirmPassword: { type: "string" ,minLength: 1},
       phoneNumber: { type: "string" ,minLength:1 },
+      imageUrl:{type:"string"}
     },
     required: ["firstName", "lastName", "email", "password","confirmPassword","phoneNumber"],
     additionalProperties: false,

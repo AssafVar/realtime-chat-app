@@ -41,13 +41,21 @@ function Contacts(props) {
         }
         getMessages()
     },[currentChat],[newMessage]);
-    //console.log(currentChat);
+
     const handleSubmit = async()=>{
-      console.log(auth.user.id,currentChat,messageToSend);
       const response = await postMessage(auth.user.id,currentChat._id,messageToSend,auth.token);
       setMessageToSend('')
-      response&&setNewMessage(!newMessage)
+      getMessages();
   }
+  const getMessages = async()=>{
+    try{
+        const response = await getChatMessages(currentChat?._id,auth.token);
+        setMessages(response.data);
+    }catch(err){
+        console.log(err)
+    }
+}
+
   return (
     <Container>
       <Row className="my-3">

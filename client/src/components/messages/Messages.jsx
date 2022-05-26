@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 
 function Messages({chatMessages}) {
 
-    const [user, setUser] = useState(null);
     const auth = useAuth();
     const scrollRef = useRef();
 

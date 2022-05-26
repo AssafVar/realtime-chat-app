@@ -14,10 +14,11 @@ function Message({own, m}) {
 
     return (
         <>
-        <div className={`message d-flex ${isUser}`}>
-            <img src="https://mdbootstrap.com/img/new/slides/041.webp" alt="user photo"/>
-            <span>{m.text}</span>
-            <div>
+        <div className={`messages d-flex ${isUser}`}>
+            <img src="" alt="user photo"/>
+            <div className={`message ${isUser}`}>
+            <span  >{m.text}</span>
+           
             </div>
         </div>
         <span>{format(m.createdAt)}</span>
